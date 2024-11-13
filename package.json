@@ -1,0 +1,19 @@
+{
+  "name": "test-esbuild-external",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node build.mjs && node dist/index.js",
+    "start-ext": "node build-ext.mjs && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^4.17.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}

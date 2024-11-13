@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Run without the shelljs module as external
+        run: npm run start
+      - name: Run with the shelljs module as external
+        run: npm run start-ext
+        if: failure()
