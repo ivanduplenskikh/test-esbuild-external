@@ -16,8 +16,14 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm install
+      - name: Build external case
+        run: node build-ext.mjs
+      - name: Build internal case
+        run: node build.mjs
+      - name: Remove node_modules
+        run: rm -rf node_modules
       - name: Run without the shelljs module as external
-        run: npm run start
+        run: node dist/index.js
       - name: Run with the shelljs module as external
-        run: npm run start-ext
+        run: node dist/index-ext.js
         if: failure()
